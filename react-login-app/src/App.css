@@ -1,46 +1,93 @@
+@font-face {
+    font-family: 'BYekan';
+    src:          url('react-login-app\src\fonts\BYekan.woff') format('woff'),
+                  url('react-login-app\src\fonts\BYekan.eot') format('eot'),    
+                  url('react-login-app\src\fonts\BYekan.ttf') format('truetype'); 
+}
+
+:root {   
+  --color-primary: #2C7A7B  ;   
+  --color-secondary: #F7FAFC ;
+  --color-texts : #2D3748 ;
+  --color-buttons: #69c0b4;    
+  --color-success: #38A169 ;   
+  --color-error: #E53E3E ;   
+  --color-warning: #F97316;   
+  --color-neutral-100: #007bff;   
+  --color-neutral-500: #0056b3; }
+
 body {
-  font-family: sans-serif;
-  background-color: #f3f3f3;
+  font-family: 'BYekan';
+  background-color: var(--color-primary);
   direction: rtl;
 }
 
 .form-container {
   width: 320px;
-  margin: 100px auto;
-  background: white;
+  margin: 140px auto;
+  background: var(--color-secondary);
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center children horizontally */
+}
+
+.form-container h2 {
+  width: 100%;
+  margin-bottom: 16px;
+  margin-right: 10px; /* Increased from 20px for more right shift */
+  text-align: center;  /* Align text to the right */
+  display: block;
 }
 
 input {
-  width: 100%;
+  width: 100%; /* Slightly less than 100% for visible centering */
   padding: 12px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  direction: ltr;         /* User input is LTR */
+  text-align: center;      /* Placeholder/text aligns right (RTL look) */
+}
+
+.login-input {
+  font-family: 'BYekan';
+  color: var(--color-texts);
 }
 
 button {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--color-buttons);
+  color: var(--color-texts);
+  font-weight: bold;
   padding: 12px;
-  width: 100%;
+  width: 112%;
   border: none;
   border-radius: 8px;
+  margin-top: 10px;
   font-size: 16px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #27675E ;
+  color: whitesmoke;
 }
 
 .error {
-  color: red;
-  margin-top: 10px;
+  color: var(--color-error);
+  margin-top: 24px; /* Increased from 10px */
+}
+
+.success {
+  color: var(--color-success);
+  margin-top: 24px; /* Increased from 10px */
 }
 
 .dashboard {
@@ -49,10 +96,53 @@ button:hover {
 }
 
 .box {
-  background: white;
+  background: var(--color-secondary);
   width: 400px;
   margin: 0 auto;
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 0 10px #ccc;
+}
+
+.otp-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 16px 0;
+}
+
+.otp-input {
+  width: 140px;
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+  padding: 12px;
+}
+
+.otp-btn {
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-buttons);
+  color: var(--color-texts);
+  font-family: 'BYekan';
+  cursor: pointer;
+  height: 48px;
+  white-space: nowrap;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: var(--color-buttons);
+  color: var(--color-texts);
+  font-family: 'BYekan';
+  font-weight: bold;
+  margin-top: 16px;
+  cursor: pointer;
 }

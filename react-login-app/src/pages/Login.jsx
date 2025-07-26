@@ -4,35 +4,40 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [billNumber, setBillNumber] = useState("");
-  const [nationalCode, setNationalCode] = useState("");
+  const [internetPassword, setInternetPassword] = useState(""); // changed
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setLoading(true); // Start loader
+    setSuccess("");
+    setLoading(true);
 
     setTimeout(async () => {
       try {
         const res = await axios.get("/data.json");
         const users = res.data;
         const matched = users.find(
-          (u) => u.billNumber === billNumber && u.nationalCode === nationalCode
+          (u) => u.billNumber === billNumber && u.internetPassword === internetPassword // changed
         );
         if (matched) {
-          localStorage.setItem("user", JSON.stringify(matched)); // Save user info
-          navigate("/dashboard");
+          setSuccess("ورود موفقیت‌آمیز بود!");
+          localStorage.setItem("user", JSON.stringify(matched));
+          setTimeout(() => {
+            navigate("/otp"); // Go to OTP page instead of dashboard
+          }, 300);
         } else {
-          setError("شماره قبض یا کد ملی نادرست است.");
+          setError("شماره قبض یا رمز اینترنتی نادرست است."); // changed
         }
       } catch (error) {
         setError("خطا در دریافت اطلاعات.");
       } finally {
-        setLoading(false); // Stop loader
+        setLoading(false);
       }
-    }, 1000); // 1 seconds delay
+    }, 1000);
   };
 
   return (
@@ -40,6 +45,7 @@ function Login() {
       <h2>ورود</h2>
       <form onSubmit={handleSubmit}>
         <input
+          className="login-input"
           type="text"
           placeholder="شماره قبض"
           value={billNumber}
@@ -47,16 +53,18 @@ function Login() {
           disabled={loading}
         />
         <input
+          className="login-input"
           type="text"
-          placeholder="کد ملی"
-          value={nationalCode}
-          onChange={(e) => setNationalCode(e.target.value)}
+          placeholder="رمز اینترنتی"
+          value={internetPassword} // changed
+          onChange={(e) => setInternetPassword(e.target.value)} // changed
           disabled={loading}
         />
         <button type="submit" disabled={loading}>
           {loading ? "در حال ورود..." : "ورود"}
         </button>
         {error && <p className="error">{error}</p>}
+        {success && <p className="success">{success}</p>}
       </form>
     </div>
   );

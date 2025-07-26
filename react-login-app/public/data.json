@@ -1,13 +1,13 @@
 [
   {
     "billNumber": "123456",
-    "nationalCode": "0011223344",
+    "internetPassword": "0011223344",
     "name": "اشکان قدیمی",
     "phoneNumber": "09123456789"
   },
   {
     "billNumber": "654321",
-    "nationalCode": "9988776655",
+    "internetPassword": "9988776655",
     "name": "مهدی محمدی",
     "phoneNumber": "09876543210"
   }
