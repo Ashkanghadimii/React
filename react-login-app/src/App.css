@@ -35,12 +35,33 @@ body {
   align-items: center; /* Center children horizontally */
 }
 
+.form-container.user-tests-container {
+  width: 600px;
+  max-width: 95vw;
+  margin: 60px auto;
+  background: var(--color-secondary);
+  padding: 40px 32px 32px 32px;
+  border-radius: 16px;
+  box-shadow: 0 0 18px #c3c3c3;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
 .form-container h2 {
   width: 100%;
   margin-bottom: 16px;
   margin-right: 10px; /* Increased from 20px for more right shift */
   text-align: center;  /* Align text to the right */
   display: block;
+}
+
+.user-tests-container h2 {
+  margin-bottom: 28px;
+  font-size: 2rem;
+  text-align: right;
+  color: var(--color-primary);
 }
 
 input {
@@ -114,10 +135,10 @@ button:hover {
 
 .otp-input {
   width: 140px;
-  margin-top: 20px;
   font-size: 18px;
   text-align: center;
   padding: 12px;
+  margin-top: 20px;
 }
 
 .otp-btn {
@@ -129,8 +150,9 @@ button:hover {
   color: var(--color-texts);
   font-family: 'BYekan';
   cursor: pointer;
-  height: 48px;
+  height: 46px;
   white-space: nowrap;
+  margin-top: 10px;
 }
 
 .login-btn {
@@ -145,4 +167,136 @@ button:hover {
   font-weight: bold;
   margin-top: 16px;
   cursor: pointer;
+}
+
+.login-alt-link {
+  display: inline-block;
+  margin-top: 18px;
+  margin-right: 20px;
+  font-size: 15px;
+  color: var(--color-texts);
+  text-decoration: none;
+  font-family: 'BYekan';
+  font-weight: bold;
+  transition: color 0.2s, border-bottom 0.2s;
+  border-bottom: 1px dashed var(--color-buttons);
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+
+.login-alt-link:hover {
+  color: var(--color-neutral-100);
+  border-bottom: 1px solid var(--color-neutral-100);
+}
+
+.otp-timer {
+  color: var(--color-error);
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-family: 'BYekan';
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.test-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0 0;
+}
+
+.test-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f7fafc;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  font-family: 'BYekan';
+  box-shadow: 0 2px 8px #e2e8f0;
+  transition: box-shadow 0.2s;
+}
+
+.test-item:hover {
+  box-shadow: 0 4px 16px #b2b2b2;
+}
+
+.test-name {
+  font-weight: bold;
+  color: var(--color-texts);
+  font-size: 1.1rem;
+  flex: 2;
+}
+
+.test-date {
+  color: #888;
+  font-size: 1rem;
+  margin: 0 18px;
+  flex: 1;
+  text-align: center;
+}
+
+.download-btn {
+  background: var(--color-buttons);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  text-decoration: none;
+  font-family: 'BYekan';
+  font-size: 15px;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-left: 0;
+  transition: background 0.2s;
+  min-width: 110px;
+  text-align: center;
+  display: inline-block;
+}
+
+.download-btn:last-child {
+  margin-right: 0;
+}
+
+.download-btn:hover {
+  background: var(--color-neutral-100);
+}
+
+/* Add to App.css if not already present */
+.test-table-container {
+  margin: 40px auto;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px #e2e8f0;
+  padding: 24px;
+}
+
+.test-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'BYekan';
+  direction: rtl;
+}
+
+.test-table th, .test-table td {
+  border: 1px solid #e2e8f0;
+  padding: 14px 10px;
+  text-align: right;
+  font-size: 1rem;
+}
+
+.test-table th {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.test-table td {
+  background: #f9fafb;
+}
+
+.test-table a.download-btn {
+  margin-left: 8px;
 }

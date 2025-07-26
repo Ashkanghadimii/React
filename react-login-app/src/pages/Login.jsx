@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const [billNumber, setBillNumber] = useState("");
@@ -26,6 +26,7 @@ function Login() {
         if (matched) {
           setSuccess("ورود موفقیت‌آمیز بود!");
           localStorage.setItem("user", JSON.stringify(matched));
+          localStorage.setItem("loginMethod", "login"); // <-- Add this line
           setTimeout(() => {
             navigate("/otp"); // Go to OTP page instead of dashboard
           }, 300);
@@ -56,8 +57,8 @@ function Login() {
           className="login-input"
           type="text"
           placeholder="رمز اینترنتی"
-          value={internetPassword} // changed
-          onChange={(e) => setInternetPassword(e.target.value)} // changed
+          value={internetPassword}
+          onChange={(e) => setInternetPassword(e.target.value)}
           disabled={loading}
         />
         <button type="submit" disabled={loading}>
@@ -66,6 +67,11 @@ function Login() {
         {error && <p className="error">{error}</p>}
         {success && <p className="success">{success}</p>}
       </form>
+      <div>
+        <Link to="/nationalcode" className="login-alt-link">
+          ورود با کد ملی
+        </Link>
+      </div>
     </div>
   );
 }
