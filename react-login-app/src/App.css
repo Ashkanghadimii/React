@@ -14,18 +14,21 @@
   --color-error: #E53E3E ;   
   --color-warning: #F97316;   
   --color-neutral-100: #007bff;   
-  --color-neutral-500: #0056b3; }
+  --color-neutral-500: #0056b3; 
+}
 
 body {
   font-family: 'BYekan';
   background-color: var(--color-primary);
   direction: rtl;
+  max-height: 100vh;
+  overflow-x: hidden;
 }
 
 .form-container {
   width: 320px;
-  margin: 140px auto;
   background: var(--color-secondary);
+  margin: 120px auto;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -114,6 +117,21 @@ button:hover {
 .dashboard {
   padding-top: 100px;
   text-align: center;
+}
+
+.dashboard h2 {
+  color: black;
+  font-family: 'BYekan';
+  font-size: 2rem;
+  margin-top: 0;
+  margin-right: 0;
+}
+
+.patient-info{
+  font-weight: bold;
+  color: var(--color-texts);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
 }
 
 .box {
@@ -300,3 +318,171 @@ button:hover {
 .test-table a.download-btn {
   margin-left: 8px;
 }
+
+.blood-section-title {
+  font-weight: bold;
+  background: #2b6cb0;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px 8px 0 0;
+  margin-top: 24px;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.blood-result-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+  font-size: 0.97rem;
+  background: #f8fafc;
+  direction: rtl;
+}
+.blood-result-table th, .blood-result-table td {
+  border: 1px solid #e2e8f0;
+  padding: 6px 8px;
+  text-align: center;
+}
+.blood-result-table th {
+  background: #e6fffa;
+  color: #27675E;
+  font-weight: bold;
+}
+
+/* Mobile devices (up to 600px) */
+@media screen and (max-width: 600px) {
+
+    .form-container {
+        width: 70%;
+        padding: 1.5rem;
+        margin: 10vh auto;
+    }
+
+    .form-container .login-input {
+        width: 100%;
+        padding: 0.8rem;
+        margin-right: -15px;
+    }
+
+    .form-container.user-tests-container {
+      width: 85%;
+      padding: 1.1rem;
+    }
+
+    .form-container.user-tests-container .download-btn {
+        width: 70%;
+        margin-right: 40px;
+    }
+
+    .form-container h2 {
+        font-size: 1.25rem;
+        margin-right: 0.5rem;
+    }
+
+    .user-tests-container h2 {
+        font-size: 1.5rem;
+    }
+
+    input, .otp-input {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+    
+    button, .otp-btn, .login-btn {
+        padding: 0.5rem;
+        max-height: 38px;
+    }
+
+    .login-btn {
+      width: 100%;
+    }
+
+    button {
+      margin-right: -10px;
+      width: 112%;
+    }
+
+    .test-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem;
+    }
+
+    .test-name, .test-date {
+        flex: none;
+        margin: 0.5rem 0;
+        text-align: right;
+    }
+
+    .download-btn {
+        width: 80%;
+        margin-bottom: 2%;
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .test-table-container {
+        padding: 1rem;
+    }
+
+    .test-table th, .test-table td {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+
+    .blood-result-table th, .blood-result-table td {
+        font-size: 0.8rem;
+        padding: 0.3rem;
+    }
+
+    .otp-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .dashboard h2 {
+      margin-top: -60px;
+    }
+}
+
+/* Tablet devices (601px to 1024px) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .form-container {
+        width: 90%;
+        max-width: 500px;
+        padding: 1.75rem;
+    }
+
+    .form-container.user-tests-container {
+        width: 90%;
+        max-width: 700px;
+    }
+
+    .form-container h2 {
+        font-size: 1.75rem;
+    }
+
+    .user-tests-container h2 {
+        font-size: 1.75rem;
+    }
+
+    input, .otp-input {
+        font-size: 0.95rem;
+    }
+
+    button, .otp-btn, .login-btn {
+        font-size: 0.95rem;
+        padding: 0.625rem;
+    }
+
+    .test-table th, .test-table td {
+        font-size: 0.95rem;
+    }
+
+    .blood-result-table th, .blood-result-table td {
+        font-size: 0.9rem;
+    }
+}
+
+

@@ -21,46 +21,93 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <h2>داشبورد</h2>
+      <h2>سامانه جوابدهی آنلاین آزمایش</h2>
       <div className="test-table-container">
-        <table className="test-table">
+        <div style={{ marginBottom: "24px", textAlign: "right" }}>
+          <strong className="patient-info">نام بیمار:</strong> {test.patientName} <br />
+          <strong className="patient-info">تاریخ آزمایش:</strong> {test.date} <br />
+          <strong className="patient-info">نوع آزمایش:</strong> {test.testType}
+        </div>
+        <div style={{ marginBottom: "18px", textAlign: "right" }}>
+          <strong>توضیحات:</strong> {test.description}
+        </div>
+
+        <div className="blood-section-title">
+          Blood Biochemistry Department
+        </div>
+        <table className="blood-result-table">
           <thead>
             <tr>
-              <th>نام آزمایش</th>
-              <th>تاریخ</th>
-              <th>توضیحات</th>
-              <th>دانلود</th>
+              <th>آیتم</th>
+              <th>مقدار</th>
+              <th>واحد</th>
+              <th>محدوده نرمال</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>{test.name}</td>
-              <td>{test.date}</td>
-              <td>{test.description}</td>
-              <td>
-                <a
-                  href={test.fileUrlFa}
-                  className="download-btn"
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  دانلود فارسی
-                </a>
-                <a
-                  href={test.fileUrlEn}
-                  className="download-btn"
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ marginRight: "8px" }}
-                >
-                  دانلود انگلیسی
-                </a>
-              </td>
-            </tr>
+            {test.biochemistry.map((item, idx) => (
+              <tr key={idx}>
+                <td>{item.name}</td>
+                <td>{item.result}</td>
+                <td>{item.unit}</td>
+                <td>{item.normal}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
+
+        <div
+          className="blood-section-title"
+          style={{
+            background: "#e53e3e",
+            color: "#fff",
+            marginTop: 32,
+          }}
+        >
+          Hematology Department
+        </div>
+        <table className="blood-result-table">
+          <thead>
+            <tr>
+              <th>آیتم</th>
+              <th>مقدار</th>
+              <th>واحد</th>
+              <th>محدوده نرمال</th>
+            </tr>
+          </thead>
+          <tbody>
+            {test.hematology.map((item, idx) => (
+              <tr key={idx}>
+                <td>{item.name}</td>
+                <td>{item.result}</td>
+                <td>{item.unit}</td>
+                <td>{item.normal}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div style={{ marginTop: "24px" }}>
+          <a
+            href={test.fileUrlFa}
+            className="download-btn"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            دانلود فارسی
+          </a>
+          <a
+            href={test.fileUrlEn}
+            className="download-btn"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ marginRight: "8px" }}
+          >
+            دانلود انگلیسی
+          </a>
+        </div>
       </div>
     </div>
   );

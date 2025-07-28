@@ -46,7 +46,6 @@ function UserTests() {
                 download
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ marginRight: "8px" }}
               >
                 دانلود به انگلیسی
               </a>

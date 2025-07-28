@@ -1,8 +1,33 @@
 {
   "id": 1,
-  "name": "آزمایش خون",
+  "patientName": "علی رضایی",
   "date": "1403/04/10",
-  "description": "این آزمایش خون برای بررسی وضعیت کلی سلامت بیمار انجام شده است و شامل پارامترهایی مانند هموگلوبین، گلبول‌های سفید، پلاکت‌ها و سایر شاخص‌های مهم می‌باشد. نتیجه این آزمایش می‌تواند به تشخیص بیماری‌های خونی، عفونت‌ها و سایر مشکلات پزشکی کمک کند.",
+  "testType": "آزمایش خون کامل",
+  "description": "این آزمایش خون برای بررسی وضعیت کلی سلامت بیمار انجام شده است.",
   "fileUrlFa": "/files/blood-test-fa.pdf",
-  "fileUrlEn": "/files/blood-test-en.pdf"
+  "fileUrlEn": "/files/blood-test-en.pdf",
+  "biochemistry": [
+    { "name": "Fasting Blood Glucose (قند)", "result": "85", "unit": "mg/dL", "normal": "70 - 99" },
+    { "name": "Triglycerides (تری‌گلیسرید)", "result": "83", "unit": "mg/dL", "normal": "50 - 200" },
+    { "name": "Cholesterol (چربی کلسترول)", "result": "127", "unit": "mg/dL", "normal": "50 - 240" },
+    { "name": "Urea (اوره)", "result": "37", "unit": "mg/dL", "normal": "10 - 50" },
+    { "name": "BUN", "result": "14.8", "unit": "mg/dL", "normal": "3 - 23" },
+    { "name": "Creatinine (کراتینین)", "result": "1", "unit": "mg/dL", "normal": "0.4 - 1.4" },
+    { "name": "HDL Chole", "result": "40", "unit": "mg/dL", "normal": ">30" },
+    { "name": "LDL Chole", "result": "70", "unit": "mg/dL", "normal": "60 - 160" },
+    { "name": "VLDL", "result": "17", "unit": "mg/dL", "normal": "5 - 50" }
+  ],
+  "hematology": [
+    { "name": "W.B.C. (گلبول سفید)", "result": "7.91", "unit": "10*3/µL", "normal": "4 - 9.8" },
+    { "name": "R.B.C. (گلبول قرمز)", "result": "4.35", "unit": "10*6/µL", "normal": "4 - 5.5" },
+    { "name": "HGB (غلظت خون)", "result": "12.9", "unit": "g/dL", "normal": "12 - 15" },
+    { "name": "HCT", "result": "38.9", "unit": "%", "normal": "36 - 46" },
+    { "name": "M.C.V.", "result": "89.4", "unit": "fL", "normal": "80 - 96" },
+    { "name": "M.C.H.", "result": "27.2", "unit": "pg", "normal": "27 - 35" },
+    { "name": "M.C.H.C.", "result": "33.2", "unit": "g/dL", "normal": "31 - 37" },
+    { "name": "PLATELETS (پلاکت)", "result": "203", "unit": "10*3/µL", "normal": "140 - 440" },
+    { "name": "RDW-CV", "result": "12.6", "unit": "%", "normal": "10 - 14.6" },
+    { "name": "Blood Group", "result": "O-", "unit": "", "normal": "" },
+    { "name": "Rh Factor", "result": "Negative", "unit": "", "normal": "" }
+  ]
 }
