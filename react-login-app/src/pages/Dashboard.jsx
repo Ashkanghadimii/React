@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 function Dashboard() {
   const [test, setTest] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get("/mock-single-test.json").then((res) => {
@@ -10,9 +14,26 @@ function Dashboard() {
     });
   }, []);
 
+  const LogoutButton = () => (
+    <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <button
+        onClick={() => {
+          localStorage.removeItem("user");
+          navigate("/");
+        }}
+        style={{ background: "none", border: "none", cursor: "pointer", color: "red" }}
+        className="logout-button"
+        title="بازگشت به صفحه اصلی"
+      >
+        <FontAwesomeIcon icon={faArrowRightFromBracket} size="lg" />
+      </button>
+    </div>
+  );
+
   if (!test) {
     return (
       <div className="dashboard">
+        <LogoutButton />
         <h2>داشبورد</h2>
         <p>در حال بارگذاری اطلاعات آزمایش...</p>
       </div>
@@ -21,6 +42,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
+      <LogoutButton />
       <h2>سامانه جوابدهی آنلاین آزمایش</h2>
       <div className="test-table-container">
         <div style={{ marginBottom: "24px", textAlign: "right" }}>
@@ -28,7 +50,7 @@ function Dashboard() {
           <strong className="patient-info">تاریخ آزمایش:</strong> {test.date} <br />
           <strong className="patient-info">نوع آزمایش:</strong> {test.testType}
         </div>
-        <div style={{ marginBottom: "18px", textAlign: "right" }}>
+        <div style={{ textAlign: "right" }}>
           <strong>توضیحات:</strong> {test.description}
         </div>
 

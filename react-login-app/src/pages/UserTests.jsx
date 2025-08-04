@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 function UserTests() {
   const [tests, setTests] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Simulate fetching tests from a mock API (public/mock-tests.json)
     const fetchTests = async () => {
       try {
         const res = await axios.get("/mock-tests.json");
-        // Filter tests for the current user if needed (e.g., by nationalCode)
-        // For now, just use all mock tests
         setTests(res.data);
       } catch {
         setTests([]);
@@ -22,6 +23,19 @@ function UserTests() {
 
   return (
     <div className="form-container user-tests-container">
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <button
+          onClick={() => {
+            localStorage.removeItem("user");
+            navigate("/");
+          }}
+          style={{ background: "none", border: "none", cursor: "pointer", color: "red" }}
+          className="logout-button"
+          title="بازگشت به صفحه اصلی"
+        >
+          <FontAwesomeIcon icon={faArrowRightFromBracket} size="lg" />
+        </button>
+      </div>
       <h2>آزمایش‌های من</h2>
       {tests.length === 0 ? (
         <p>هیچ آزمایشی ثبت نشده است.</p>

@@ -5,6 +5,8 @@
                   url('react-login-app\src\fonts\BYekan.ttf') format('truetype'); 
 }
 
+
+
 :root {   
   --color-primary: #2C7A7B  ;   
   --color-secondary: #F7FAFC ;
@@ -18,7 +20,7 @@
 }
 
 body {
-  font-family: 'BYekan';
+  font-family: 'Vazirmatn';
   background-color: var(--color-primary);
   direction: rtl;
   max-height: 100vh;
@@ -350,6 +352,14 @@ button:hover {
   font-weight: bold;
 }
 
+.logout-button:hover {
+  color: inherit;
+}
+
+  .css-1tsuwpz{
+    margin-top: -800px;
+  }
+
 /* Mobile devices (up to 600px) */
 @media screen and (max-width: 600px) {
 
@@ -388,6 +398,14 @@ button:hover {
         font-size: 0.9rem;
         padding: 0.7rem;
     }
+
+    .submit-btn {
+      margin-right: -12px;
+    }
+
+    .login-alt-link{
+      margin-right: -5px;
+    }
     
     button, .otp-btn, .login-btn {
         padding: 0.5rem;
@@ -395,11 +413,11 @@ button:hover {
     }
 
     .login-btn {
-      width: 100%;
+      width: 110.5%;
+      margin-right: -8px;
     }
 
     button {
-      margin-right: -10px;
       width: 112%;
     }
 
@@ -444,6 +462,17 @@ button:hover {
     .dashboard h2 {
       margin-top: -60px;
     }
+
+    .logout-button {
+    border-radius: 50%;
+    margin-top: -70px;
+  }
+
+  .css-1tsuwpz{
+    margin-top: -200px;
+    width: 50%;
+  }
+
 }
 
 /* Tablet devices (601px to 1024px) */
@@ -483,6 +512,8 @@ button:hover {
     .blood-result-table th, .blood-result-table td {
         font-size: 0.9rem;
     }
+
+    
 }
 
 

@@ -142,7 +142,7 @@ function OtpPage() {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 320,
+    width: 280,
     bgcolor: "var(--color-secondary)",
     borderRadius: "12px",
     boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",

@@ -43,7 +43,7 @@ function NationalCodeLogin() {
           onChange={(e) => setNationalCode(e.target.value)}
           disabled={loading}
         />
-        <button type="submit" disabled={loading}>
+        <button className="submit-btn" type="submit" disabled={loading}>
           {loading ? "در حال بررسی..." : "ادامه"}
         </button>
         {error && <p className="error">{error}</p>}

@@ -33,11 +33,12 @@ function Login() {
         } else {
           setError("شماره قبض یا رمز اینترنتی نادرست است."); // changed
         }
-      } catch (error) {
-        setError("خطا در دریافت اطلاعات.");
-      } finally {
-        setLoading(false);
+        } catch (error) {
+          setError("خطا در دریافت اطلاعات.");
+        } finally {
+          setLoading(false);
       }
+
     }, 1000);
   };
 
@@ -61,7 +62,7 @@ function Login() {
           onChange={(e) => setInternetPassword(e.target.value)}
           disabled={loading}
         />
-        <button type="submit" disabled={loading}>
+        <button className="submit-btn" type="submit" disabled={loading}>
           {loading ? "در حال ورود..." : "ورود"}
         </button>
         {error && <p className="error">{error}</p>}
